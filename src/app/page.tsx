@@ -2,6 +2,7 @@ import { Account } from '../components/Account'
 import { Balance } from '../components/Balance'
 import { BlockNumber } from '../components/BlockNumber'
 import { ConnectButton } from '../components/ConnectButton'
+import Layout from '../components/layout'
 import { Connected } from '../components/Connected'
 import { NetworkSwitcher } from '../components/NetworkSwitcher'
 import { ReadContract } from '../components/ReadContract'
@@ -20,11 +21,32 @@ import { WriteContractPrepared } from '../components/WriteContractPrepared'
 export function Page() {
   return (
     <>
-      <h1>wagmi + RainbowKit + Next.js</h1>
+    <Layout>
+     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <h1>EZ Pay</h1>
+        <ConnectButton />
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center"  }}>
+        <div style={{ flex: 1, marginRight: "16px" }}>
+          <h2>Lend Orders</h2>
+        </div>
+        <div style={{ flex: 1 }}>
+          <h2>Buy Orders</h2>
+        </div>
+      </div>
 
-      <ConnectButton />
 
-      <Connected>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div style={{ flex: 1, marginRight: "16px", border: "1px solid #000" }}>
+        <p style={{ marginLeft: "20px"}}>Content for Lend Orders</p>
+      </div>
+      <div style={{ flex: 1, border: "1px solid #000" }}>
+        <p style={{ marginLeft: "20px"}}>Content for Buy Orders</p>
+      </div>
+    </div>
+
+    </Layout>
+      {/* <Connected>
         <hr />
         <h2>Network</h2>
         <NetworkSwitcher />
@@ -88,7 +110,7 @@ export function Page() {
         <hr />
         <h2>Write Contract (Prepared)</h2>
         <WriteContractPrepared />
-      </Connected>
+      </Connected> */}
     </>
   )
 }
